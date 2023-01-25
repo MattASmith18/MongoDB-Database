@@ -18,7 +18,7 @@ spec:
       - name: mongodb
         image: mongo
         ports:
-          - containerPort: 8080
+          - containerPort: 27017
         env:
             - name: MONGO_INITDB_ROOT_USERNAME
               valueFrom:
@@ -39,9 +39,7 @@ metadata:
 spec:
   selector:
     app: mongodb
-  type: NodePort
   ports:
-    - port: 8080
-      targetPort: 8080
-      protocol: TCP
-      nodePort: 32005
+    - protocol: TCP
+      port: 27017
+      targetPort: 27017 
